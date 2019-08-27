@@ -20,11 +20,9 @@ CREATE TABLE Users  (
 	Avatar varchar(500),
     Birthday date,
     Phone VARCHAR(18),
-    Email VARCHAR(128)
+    Email VARCHAR(128),
 	IsEnabled BIT DEFAULT 1,
     RoleID INT NOT NULL DEFAULT 99,
-    CONSTRAINT FK_User_Role FOREIGN KEY (RoleID)
-    REFERENCES Roles(ID),
     CONSTRAINT PK_User_ID PRIMARY KEY (ID),
     CONSTRAINT FK_User_Role FOREIGN KEY (RoleID)
     REFERENCES Roles(ID)
