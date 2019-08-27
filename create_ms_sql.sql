@@ -44,8 +44,8 @@ CREATE TABLE LogTypes(
     CONSTRAINT PK_Log_Type_ID PRIMARY KEY (ID)
 );
 
-INSERT INTO LogType(Name) VALUES ('Information');
-INSERT INTO LogType(Name) VALUES ('Error');
+INSERT INTO LogTypes(Name) VALUES ('Information');
+INSERT INTO LogTypes(Name) VALUES ('Error');
 
 CREATE TABLE LogActions(
     ID INT,
@@ -57,8 +57,8 @@ CREATE TABLE LogActions(
     REFERENCES LogTypes(ID)
 );
 
-INSERT INTO LogActions(ID, Description, TargetURL) VALUES (1, 'Logged in', '/admin?user');
-INSERT INTO LogActions(ID, Description, TargetURL) VALUES (2, 'Logged out', '/admin?user');
+INSERT INTO LogActions(ID, Name, LogTypeID, TargetURL) VALUES (1, 'Logged in', 1, '/admin?user');
+INSERT INTO LogActions(ID, Name, LogTypeID, TargetURL) VALUES (2, 'Logged out', 1, '/admin?user');
 
 CREATE TABLE Logs(
     ID int IDENTITY(1,1),
